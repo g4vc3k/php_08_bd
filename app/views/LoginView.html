@@ -1,0 +1,38 @@
+{extends file="main.html"}
+
+{block name=header}{/block}
+
+{block name=footer}{/block}
+
+{block name=content}
+
+			<header id="header">
+				<div class="content">
+					<h4>Kalkulator zużycia prądu</h4>
+<form action="{$conf->action_url}login" method="post">
+	<label for="id_login">Login: </label>
+	<input id="id_login" type="text" name="login" value="{$form->login}" /><br />
+    
+	<label for="id_pass">Haslo: </label>
+	<input id="id_pass" type="password" name="pass" value="{$form->pass}" /><br />
+    
+    
+
+    <input type="submit" value="Zaloguj" />
+</form>	
+
+{include file='messages.html'}
+
+				</div>
+				
+			</header>
+
+
+			<script src="{$conf->app_url}/assets/js/jquery.min.js"></script>
+			<script src="{$conf->app_url}/assets/js/jquery.scrolly.min.js"></script>
+			<script src="{$conf->app_url}/assets/js/browser.min.js"></script>
+			<script src="{$conf->app_url}/assets/js/breakpoints.min.js"></script>
+			<script src="{$conf->app_url}/assets/js/util.js"></script>
+			<script src="{$conf->app_url}/assets/js/main.js"></script>
+
+{/block}

@@ -1,0 +1,48 @@
+    {extends file="main.html"}
+	{block name=content}
+	
+	<h4>Kalkulator zużycia prądu</h4>
+<form action="{$conf->action_url}calcCompute" method="post">
+	<label for="id_moc">Pobór mocy w watach: </label>
+	<input id="id_moc" type="text" name="moc" value="{$form->moc}" /><br />
+    
+	<label for="id_czas">Czas w godzinach: </label>
+	<input id="id_czas" type="text" name="czas" value="{$form->czas}" /><br />
+    
+    <label for="id_cena">Cena prądu za 1kWh: </label>
+    <input id="id_cena" type="text" name="cena" value="{$form->cena}" /><br />
+    
+
+    <input type="submit" value="Oblicz" />
+</form>	
+
+    <a href="{$conf->action_root}logout" class="pure-button pure-button-active">Wyloguj</a>
+    
+    <a href="{$conf->action_root}chronionaView" class="pure-button pure-button-active">Inna strona</a>
+
+	<div>
+		{include file='messages.html'}
+
+		{if $msgs->isWyniki()}
+		<h3>Wynik:</h3>
+		<div>
+			<ol class="wyniki">
+			{foreach $msgs->getWyniki() as $w}
+			{strip}
+				<li>{$w}</li>
+			{/strip}
+			{/foreach}
+			</ol>
+		</div>
+		{/if}
+
+		{include file='wynikList.html'}
+
+	</div>
+	<script src="{$conf->app_url}/assets/js/jquery.min.js"></script>
+	<script src="{$conf->app_url}/assets/js/jquery.scrolly.min.js"></script>
+	<script src="{$conf->app_url}/assets/js/browser.min.js"></script>
+	<script src="{$conf->app_url}/assets/js/breakpoints.min.js"></script>
+	<script src="{$conf->app_url}/assets/js/util.js"></script>
+	<script src="{$conf->app_url}/assets/js/main.js"></script>
+{/block}

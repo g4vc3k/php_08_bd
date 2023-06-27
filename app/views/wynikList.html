@@ -1,0 +1,33 @@
+<table id="tab_people" class="pure-table pure-table-bordered">
+    <thead>
+        <tr>
+            <th>Moc (W)</th>
+            <th>Czas (h)</th>
+            <th>Cena prądu (1kWh)</th>
+            <th>Koszt (zł)</th>
+            <th>Rola</th>
+            
+            {if inRole('rok')}
+                <th>Opcje</th>
+            {/if}
+        </tr>
+    </thead>
+    <tbody>
+    {foreach $records as $r}
+    {strip}
+        <tr>
+            <td>{$r["moc"]}</td>
+            <td>{$r["czas"]}</td>
+            <td>{$r["cena"]}</td>
+            <td>{$r["wynik"]}</td>
+            <td>{$r["rola"]}</td>
+            {if inRole('rok')}
+            <td>
+                <a id="recordDelete" href="{$conf->action_url}wynikiDelete&id={$r['id']}">Usuń</a>
+            </td>
+            {/if}
+        </tr>
+    {/strip}
+    {/foreach}
+    </tbody>
+    </table>
